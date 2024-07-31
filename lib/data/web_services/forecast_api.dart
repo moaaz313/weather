@@ -2,19 +2,19 @@
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:weather_app/models/current_weather_model.dart';
+import 'package:weather_app/data/models/forecast.dart';
 
-import '../constants/strings.dart';
+import '../../constants/strings.dart';
 
 //todo => This line indicates that this file is associated with a generated file named
-part 'current_api.g.dart';
+part 'forecast_api.g.dart';
 
 @RestApi(baseUrl: baseUrl)
-abstract class CurrentApi {
-  factory CurrentApi(Dio dio, {String baseUrl}) = _CurrentApi;
+abstract class ForecastApi {
+  factory ForecastApi(Dio dio, {String baseUrl}) = _ForecastApi;
 
-  @GET('weather')
-  Future<CurrentWeather> getCurrentWeather(
+  @GET('forecast')
+  Future<List <ForecastWeather>> getForecastWeather(
     @Query('q') String city,
     @Query('appid') String apiKey,
   );
